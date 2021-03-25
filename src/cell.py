@@ -21,6 +21,9 @@ class cell:
         self.target = not self.target
 
     def search_cell(self):
+        if self.target == False:
+            return False
+
         choices = [True, False]
         result = random.choices(choices, weights=[1 - self.false_negative, self.false_negative], k=1)
         return result[0]
@@ -38,4 +41,3 @@ class cell:
             self.false_negative = 0.1
 
         self.terrain = newTerrain
-

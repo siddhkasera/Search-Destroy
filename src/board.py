@@ -35,10 +35,19 @@ class board:
         self.board = generate_array(dim)
 
     def get_terrain(self, i, j):
-        return self.board[i][j].get_terrain()
+        return self.board[i][j].terrain
+
+    def search_cell(self, i, j):
+        return self.board[i][j].search_cell()
 
     def get_false_negative(self, i, j):
-        return self.board[i][j].get_false_negative()
+        return self.board[i][j].false_negative
+
+    def isValid(self, row, col):
+        if row >= self.dim or row < 0 or col >= self.dim or col < 0:
+            return False
+        else:
+            return True
 
     def print_board(self):
         dim = self.dim
