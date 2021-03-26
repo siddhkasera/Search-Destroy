@@ -7,6 +7,7 @@ agent = input("Which agent do you want to use? ")
 board = board(50)
 #board.print_board()
 #board.display_board()
+board.setTarget()
 
 if agent == 'manual' or agent == 'Manual' or agent == 'm' or agent == "M":
     manual_agent(board)

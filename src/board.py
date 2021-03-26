@@ -49,6 +49,11 @@ class board:
         else:
             return True
 
+    def setTarget(self):
+        randRow = random.randint(0, self.dim-1)
+        randCol = random.randint(0, self.dim-1)
+        self.board[randRow][randCol].set_target
+
     def print_board(self):
         dim = self.dim
         copy = [["" for i in range(dim)] for j in range(dim)]
