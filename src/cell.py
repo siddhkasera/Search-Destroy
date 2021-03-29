@@ -2,6 +2,7 @@ import random
 
 
 class cell:
+    """Cell object, which is the most basic unit in this project"""
     def __init__(self, terrain='flat'):
         self.terrain = terrain
         self.target = False
@@ -18,10 +19,20 @@ class cell:
             self.false_negative = 0.1
 
     def set_target(self):
+        """
+        Inverts the value of self.target: if target was True, it turns to False, and vice versa
+        :return:
+        """
         self.target = not self.target
 
     def search_cell(self):
-        if self.target == False:
+        """
+        Searches the cell to determine if it contains the target. Return False if not found and True if found
+        Take into account the false negative rate
+
+        :return: boolean
+        """
+        if not self.target:
             return False
 
         choices = [True, False]
@@ -29,6 +40,12 @@ class cell:
         return result[0]
 
     def set_terrain(self, newTerrain='flat'):
+        """
+        Changes terrain of cell. Default is 'flat'
+
+        :param: newTerrain
+        :return
+        """
         if newTerrain == 'flat':
             self.false_negative = 0.1
         elif newTerrain == 'hilly':

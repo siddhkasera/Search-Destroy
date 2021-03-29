@@ -1,0 +1,19 @@
+from src.AutoAgent import auto_agent
+import board
+
+
+class basic_agent1(auto_agent):
+    def __init__(self, b: board, dim=50):
+        super().__init__(b, dim)
+
+    # Override
+    def update_kb(self, row, col, falseNeg, result: bool): # TODO: calculate and update BELIEF states
+        """
+        Overrides update_kb of auto_agent
+        """
+        pass
+
+
+def basic_agent1(b: board, dim=50):
+    agent = basic_agent1(b, dim)
+    agent.run_agent()
