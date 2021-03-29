@@ -131,11 +131,12 @@ class auto_agent:
                     greatestArr.append((nRow, nCol, m))
 
         leastDistArr = get_least_manhattan(greatestArr)
-        self.dist = self.dist + leastDistArr[0][2]
         if len(leastDistArr) == 0:
             return (row, col)
         elif len(leastDistArr) == 1:
+            self.dist = self.dist + get_manhattan_dist(row, col, leastDistArr[0][0], leastDistArr[0][1])
             return leastDistArr[0]
         else:
             random_elem = randint(0, len(leastDistArr))
+            self.dist = self.dist + get_manhattan_dist(row, col, leastDistArr[random_elem][0], leastDistArr[random_elem][1])
             return leastDistArr[random_elem]
