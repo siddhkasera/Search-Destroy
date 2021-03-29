@@ -70,6 +70,8 @@ class auto_agent:
                 row = next_coords[0]
                 col = next_coords[1]
 
+        print(self.time)
+
     def search_cell(self, row, col):
         """
         Search the given cell. Also would call update_kb and update kn based off of the results
@@ -129,6 +131,7 @@ class auto_agent:
                     greatestArr.append((nRow, nCol, m))
 
         leastDistArr = get_least_manhattan(greatestArr)
+        self.dist = self.dist + leastDistArr[0][2]
         if len(leastDistArr) == 0:
             return (row, col)
         elif len(leastDistArr) == 1:
