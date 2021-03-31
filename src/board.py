@@ -92,6 +92,7 @@ class board:
         randCol = random.randint(0, self.dim - 1)
         if printTarget:
             print("The target should be: (" + str(randRow) + ", " + str(randCol) + ")")
+            print("Its terrain type should be: " + self.board[randRow][randCol].terrain)
         self.board[randRow][randCol].set_target()
 
     def print_board(self):

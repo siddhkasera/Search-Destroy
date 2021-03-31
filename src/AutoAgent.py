@@ -24,18 +24,18 @@ def get_least_manhattan(greatestArr, dim=50):
     From list of tuples, select the one with the least Manhattan distance
     The tuples in greatestArr are of format (row, col, manhattan dist)
 
-    :param greatestArr:
-    :param dim
+    :param greatestArr: List of cells with the greatest probability
+    :param dim:
     :return: list, of tuples representing points with the least Manhattan distance. Format is (row, col)
     """
     leastDistArr = []
     current_dist = dim * dim + 1
     for i in greatestArr:
-        if greatestArr[i][2] < current_dist:
-            current_dist = greatestArr[i][2]
-            leastDistArr = [(greatestArr[i][0], greatestArr[1][1])]
-        elif greatestArr[i][2] == current_dist:
-            leastDistArr.append((greatestArr[i][0], greatestArr[i][1]))
+        if i[2] < current_dist:
+            current_dist = i[2]
+            leastDistArr = [(i[0], i[1])]
+        elif i[2] == current_dist:
+            leastDistArr.append((i[0], i[1]))
 
     return leastDistArr
 
@@ -56,21 +56,29 @@ class auto_agent:
         self.dist = 0
         self.time = 0
 
-    def run_agent(self):
-        row = randint(0, self.dim)
-        col = randint(0, self.dim)
+    def run_agent(self, printPerformance=False):
+        row = randint(0, self.dim-1)
+        col = randint(0, self.dim-1)
         while True:
             self.time = self.time + 1
-            if self.board.search_cell(row, col):
+            result = self.board.search_cell(row, col)
+            if result:
                 break
-            else:
+            else:  # target NOT found
                 self.update_kb(row, col, self.board.get_false_negative(row, col))
                 greatest = self.get_greatest_probability()
                 next_coords = self.choose_next_cell(row, col, greatest)
                 row = next_coords[0]
                 col = next_coords[1]
 
-        print(self.time)
+        if printPerformance:
+            print("RESULTS:")
+            print("Target located at: (" + str(row) + ", " + str(col) + ")")
+            print("Terrain type was: " + self.board.board[row][col].terrain)
+            print(str(self.time) + " iterations")
+            print(str(self.dist) + " distance")
+
+        return
 
     def search_cell(self, row, col):
         """
@@ -96,19 +104,19 @@ class auto_agent:
         greatest = -1
         for i in range(self.dim):
             for j in range(self.dim):
-                if self.kb[i][j] > greatest[0]:
+                if self.kb[i][j] > greatest:
                     greatest = self.kb[i][j]
 
         return greatest
 
-    def update_kb(self, row, col, falseNeg, result: bool):
+    def update_kb(self, row, col, falseNeg, result: bool = False):
         """
         I recommend overriding this one with the formula used to calculate the knowledge and belief states
 
-        :param row
-        :param col
+        :param row:
+        :param col:
         :param falseNeg: the false negative rate of the cell
-        :param result: bool, the results of the search
+        :param result: bool, the results of the search (should be false)
         :return:
         """
         pass
@@ -117,8 +125,8 @@ class auto_agent:
         """
         Chooses the next cell to be searched. May be overridden in case the advanced agent has a different approach to selecting the next cell
 
-        :param row
-        :param col
+        :param row:
+        :param col:
         :param greatest: Greatest value of the board
         :return: tuple, of the form (row, col) representing the coordinates
         """
@@ -126,7 +134,7 @@ class auto_agent:
         greatestArr = []
         for nRow in range(self.dim):
             for nCol in range(self.dim):
-                if self.board[nRow][nCol] == greatest:
+                if self.kb[nRow][nCol] == greatest:
                     m = get_manhattan_dist(row, col, nRow, nCol)
                     greatestArr.append((nRow, nCol, m))
 
@@ -137,6 +145,7 @@ class auto_agent:
             self.dist = self.dist + get_manhattan_dist(row, col, leastDistArr[0][0], leastDistArr[0][1])
             return leastDistArr[0]
         else:
-            random_elem = randint(0, len(leastDistArr))
-            self.dist = self.dist + get_manhattan_dist(row, col, leastDistArr[random_elem][0], leastDistArr[random_elem][1])
+            random_elem = randint(0, len(leastDistArr)-1)
+            self.dist = self.dist + get_manhattan_dist(row, col, leastDistArr[random_elem][0],
+                                                       leastDistArr[random_elem][1])
             return leastDistArr[random_elem]
