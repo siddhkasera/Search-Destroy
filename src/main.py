@@ -26,8 +26,8 @@ elif agent == "Basic 1" or agent == "basic 1" or agent == "b1" or agent == "B1":
     exe_basic_agent1(board, 50, True)
 
 elif agent == "Basic 2" or agent == "basic 2" or agent == "b2" or agent == "B2":
-    print("Basic agent 2 not implemented")
-    # TODO: exe_basic_agent2(board, 50)
+    print("Running basic agent 2...\n")
+    exe_basic_agent2(board, 50, True)
 
 elif agent == "improved" or agent == "Improved" or agent == "I" or agent == "i" or agent == "Advanced" or agent == "advanced":
     print("Improved agent not implemented")
