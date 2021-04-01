@@ -1,5 +1,5 @@
 from random import randint
-
+import time
 import board
 
 
@@ -57,6 +57,7 @@ class auto_agent:
         self.time = 0
 
     def run_agent(self, printPerformance=False):
+        start = time.time()
         row = randint(0, self.dim-1)
         col = randint(0, self.dim-1)
         while True:
@@ -70,13 +71,14 @@ class auto_agent:
                 next_coords = self.choose_next_cell(row, col, greatest)
                 row = next_coords[0]
                 col = next_coords[1]
-
+        end = time.time()
         if printPerformance:
             print("RESULTS:")
             print("Target located at: (" + str(row) + ", " + str(col) + ")")
             print("Terrain type was: " + self.board.board[row][col].terrain)
             print(str(self.time) + " iterations")
             print(str(self.dist) + " distance")
+            print(str(end-start) + " seconds")
 
         return
 

@@ -10,7 +10,7 @@ class basic_agent1(auto_agent):
     def update_kb(self, row, col, falseNeg, result: bool = False):
         """
         Overrides update_kb of auto_agent
-        Calculates the belief state
+        Calculates the belief state, and use that in the kb
         """
         # self.dim = dim
         # self.kb = [[1 / dim for i in range(dim)] for j in range(dim)] -- when time equals 0

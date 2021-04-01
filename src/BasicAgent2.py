@@ -7,10 +7,10 @@ class basic_agent2(auto_agent):
         super().__init__(b, dim)
 
     # Override
-    def update_kb(self, row, col, falseNeg, result: bool = False): # TODO: calculate and update CONFIDENCE states
+    def update_kb(self, row, col, falseNeg, result: bool = False):
         """
         Overrides update_kb of auto_agent
-        Should calculate confidence state
+        Calculates confidence state, and use that in the kb
         """
         self.update_belief(row, col, falseNeg, result)
         # Confidence state(cell) = (1-FNR(cell) )*Belief state(cell)
