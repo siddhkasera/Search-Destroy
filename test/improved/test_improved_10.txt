@@ -1,0 +1,10 @@
+Agent: i
+Running improved agent...
+
+RESULTS:
+Target located at: (27, 12)
+Terrain type was: cave
+22823 iterations
+1630 distance
+24453 total score
+76.17448663711548 seconds

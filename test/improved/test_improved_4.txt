@@ -1,0 +1,10 @@
+Agent: i
+Running improved agent...
+
+RESULTS:
+Target located at: (27, 47)
+Terrain type was: hilly
+21475 iterations
+1491 distance
+22966 total score
+80.3683865070343 seconds

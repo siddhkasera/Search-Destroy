@@ -1,6 +1,6 @@
 from math import log
 from random import randint
-from src.AutoAgent import auto_agent, get_manhattan_dist, get_least_manhattan
+from AutoAgent import auto_agent, get_manhattan_dist, get_least_manhattan
 import board
 from src.BasicAgent2 import basic_agent2
 

@@ -1,4 +1,4 @@
-from src.AutoAgent import auto_agent
+from AutoAgent import auto_agent
 import board
 
 

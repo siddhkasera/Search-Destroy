@@ -1,0 +1,10 @@
+Agent: b2
+Running basic agent 2...
+
+RESULTS:
+Target located at: (5, 37)
+Terrain type was: forest
+13034 iterations
+53558 distance
+66592 total score
+37.92879843711853 seconds

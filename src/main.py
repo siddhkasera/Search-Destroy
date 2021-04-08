@@ -1,9 +1,9 @@
 from board import *
 from ManualAgent import *
-from src.BasicAgent1 import exe_basic_agent1
-from src.BasicAgent2 import exe_basic_agent2
-from src.ImprovedAgent import exe_improved_agent
-from src.auto_test import automate_test
+from BasicAgent1 import exe_basic_agent1
+from BasicAgent2 import exe_basic_agent2
+from ImprovedAgent import exe_improved_agent
+from auto_test import automate_test
 auto = input("Would you like to automate testing? Y/N ")
 if auto == "Y" or auto == "y" or auto == "Yes" or auto == "yes":
     automate_test()

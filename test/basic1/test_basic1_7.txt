@@ -1,0 +1,10 @@
+Agent: b1
+Running basic agent 1...
+
+RESULTS:
+Target located at: (44, 49)
+Terrain type was: hilly
+1684 iterations
+1831 distance
+3515 total score
+7.4049060344696045 seconds

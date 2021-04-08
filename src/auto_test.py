@@ -22,7 +22,7 @@ def automate_test():
     print("Starting tests...")
     results1 = []
     results2 = []
-    resultsI = []
+    resultsIm = []
 
     orig_stdout = sys.stdout
     f = open(file_name, "w")
@@ -39,26 +39,26 @@ def automate_test():
         board2 = board(50)
         res2 = exe_basic_agent2(board2, board2.dim, True)
 
-        boardI = board(50)
-        resI = exe_improved_agent(boardI, boardI.dim, True)
+        boardIm = board(50)
+        resIm = exe_improved_agent(boardIm, boardIm.dim, True)
 
         results1.append(res1)
         results2.append(res2)
-        resultsI.append(resI)
+        resultsIm.append(resIm)
 
-        del res1, res2, resI
+        del board1, board2, boardIm, res1, res2, resIm
 
         a = a+1
 
     print(results1)
     print(results2)
-    print(resultsI)
+    print(resultsIm)
 
     print("End of raw data")
     print("\nHere are the avg scores:")
     print("Basic agent 1: ", str(avg(results1)))
     print("Basic agent 2: ", str(avg(results2)))
-    print("Improved agent: ", str(avg(resultsI)))
+    print("Improved agent: ", str(avg(resultsIm)))
 
     sys.stdout = orig_stdout
     f.close()

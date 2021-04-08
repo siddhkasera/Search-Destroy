@@ -1,0 +1,10 @@
+Agent: b1
+Running basic agent 1...
+
+RESULTS:
+Target located at: (9, 2)
+Terrain type was: flat
+20542 iterations
+169676 distance
+190218 total score
+67.90465664863586 seconds

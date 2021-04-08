@@ -1,0 +1,10 @@
+Agent: i
+Running improved agent...
+
+RESULTS:
+Target located at: (24, 20)
+Terrain type was: flat
+36540 iterations
+2609 distance
+39149 total score
+119.94152617454529 seconds

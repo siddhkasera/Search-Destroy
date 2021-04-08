@@ -1,0 +1,10 @@
+Agent: b2
+Running basic agent 2...
+
+RESULTS:
+Target located at: (10, 2)
+Terrain type was: cave
+457 iterations
+500 distance
+957 total score
+1.8309528827667236 seconds

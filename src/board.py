@@ -2,7 +2,7 @@ import random
 import sys
 
 from cell import *
-from src.display_array import display_array
+from display_array import display_array
 
 
 def generate_array(dim=50):
