@@ -45,4 +45,4 @@ def exe_basic_agent1(b: board, dim=50, printPerformance=False):
     :return:
     """
     agent = basic_agent1(b, dim)
-    agent.run_agent(printPerformance)
+    return agent.run_agent(printPerformance)

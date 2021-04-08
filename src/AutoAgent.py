@@ -78,16 +78,17 @@ class auto_agent:
             print("Terrain type was: " + self.board.board[row][col].terrain)
             print(str(self.time) + " iterations")
             print(str(self.dist) + " distance")
+            print(str(self.time + self.dist) + " total score")
             print(str(end-start) + " seconds")
 
-        return
+        return self.time + self.dist  # The total score
 
     def search_cell(self, row, col):
         """
         Search the given cell. Also would call update_kb and update kn based off of the results
 
-        :param row:
-        :param col:
+        :param row: Current row coord
+        :param col: Current col coord
         :return: boolean, true if found, false otherwise
         """
         isFound = self.board.search_cell(row, col)
