@@ -3,12 +3,17 @@ from ManualAgent import *
 from BasicAgent1 import exe_basic_agent1
 from BasicAgent2 import exe_basic_agent2
 from ImprovedAgent import exe_improved_agent
+from functools import reduce
 from auto_test import automate_test
 
 # auto = input("Would you like to automate testing? Y/N ")
 # if auto == "Y" or auto == "y" or auto == "Yes" or auto == "yes":
 #   automate_test()
-
+def avg(list):
+    sum = 0
+    sum += reduce(lambda a, b: a + b, list)
+    avg = sum / len(list)
+    return avg
 agent = input("Which agent do you want to use? ")
 
 board = board(50)
@@ -21,7 +26,7 @@ board = board(50)
 # else:
 #   p = False
 # board.randomSetTarget(p)
-
+result1 = []
 # board.print_board()
 res = 0
 for i in range(10):
@@ -59,8 +64,16 @@ for i in range(10):
     else:
         print("That's not an agent!")
 
+    result1.append(res)
+
+
+
+
+
     # if output == "Y" or output == "y" or output == "Yes" or output == "yes":
     #   sys.stdout = orig_stdout
     #  f.close()
 
     print("\nTerminating the program")
+
+print(agent, "Avg scores:", str(avg(result1)))
